@@ -90,7 +90,7 @@ namespace Interfata_Utilizator
             Console.WriteLine("TIP CETATENIE ");
             patient.Cetatean = TypeOfC();
 
-            Console.Write("Data de nastere: (dd-mm-yyyy)\nRaspuns:");
+            Console.Write("Data de nastere: (dd.mm.yyyy)\nRaspuns:");
 
             string date = string.Empty;
             date = Console.ReadLine();
@@ -104,9 +104,24 @@ namespace Interfata_Utilizator
             patient.Card = HaveOrNotCard();
 
             string date1 = string.Empty;
-            Console.Write("Data internarii: (dd-mm-yyyy)\nRaspuns:");
+            Console.Write("Data internarii: (dd.mm.yyyy)\nRaspuns:");
             date1 = Console.ReadLine();
             patient.DataInternare = DateTime.Parse(date1);
+
+            Console.WriteLine("Introduceti simptomele pe care le aveti:  (durere de cap, ameteala, etc.)");
+            string InfoSimpt = Console.ReadLine().ToUpper();
+            List<string> simpt = new List<string>();
+
+
+            string[] SimptomeFormatate = InfoSimpt.Split(',');
+
+            for (int i = 0; i < SimptomeFormatate.Length; i++)
+            {
+                SimptomeFormatate[i] = SimptomeFormatate[i].Trim();
+                simpt.Add(SimptomeFormatate[i]);
+            }
+
+            patient.Simptome = simpt;
 
             return patient;
         }

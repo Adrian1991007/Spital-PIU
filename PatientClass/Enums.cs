@@ -20,20 +20,24 @@ namespace PatientClass
 
     public enum TipCetatenie
     {
-        ROMAN = 1,
-        STRAIN = 2
+        ROMANA = 1,
+        GERMANA = 2,
+        ENGLEZA = 3,
+        FRANCEZA = 4
+        
     }
 
     public enum ContinutPacient
     {
-        NUME = 1,
-        PRENUME = 2,
-        SEX = 3,
-        VARSTA = 4,
-        CETATEAN = 5,
-        DATANASTERE = 6,
-        MOTIVINTERNARE = 7,
-        CARD = 8,
-        DATAINTERNARE = 9
+        NUME = 0,
+        PRENUME = 1,
+        SEX = 2,
+        VARSTA = 3,
+        CETATEAN = 4,
+        DATANASTERE = 5,
+        MOTIVINTERNARE = 6,
+        CARD = 7,
+        DATAINTERNARE = 8,
+        SIMPTOME = 9
     }
 }
