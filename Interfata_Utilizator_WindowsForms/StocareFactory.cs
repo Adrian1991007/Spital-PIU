@@ -17,7 +17,7 @@ namespace Interfata_Utilizator_WindowsForms
                 {
                     default:
                     case "bin":
-                        return null;
+                        return new AdministrarePacienti_FisierBinar(numeFisier + "." + formatSalvare);
                     case "txt":
                         return new AdministrarePacienti_FisierText(numeFisier + "." + formatSalvare);
                 }

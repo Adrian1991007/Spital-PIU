@@ -92,8 +92,7 @@ namespace Interfata_Utilizator
 
             Console.Write("Data de nastere: (dd.mm.yyyy)\nRaspuns:");
 
-            string date = string.Empty;
-            date = Console.ReadLine();
+            string date = Console.ReadLine();
             patient.DataNastere = DateTime.Parse(date);
 
             Console.Write("Motiv internare: ");
@@ -103,25 +102,24 @@ namespace Interfata_Utilizator
             Console.Write("CARD DE SANATATE: \n");
             patient.Card = HaveOrNotCard();
 
-            string date1 = string.Empty;
             Console.Write("Data internarii: (dd.mm.yyyy)\nRaspuns:");
-            date1 = Console.ReadLine();
+            string date1 = Console.ReadLine();
             patient.DataInternare = DateTime.Parse(date1);
 
-            Console.WriteLine("Introduceti simptomele pe care le aveti:  (durere de cap, ameteala, etc.)");
-            string InfoSimpt = Console.ReadLine().ToUpper();
-            List<string> simpt = new List<string>();
+            Console.WriteLine("Introduceti bolile pe care le aveti:  (durere de cap, ameteala, etc.)");
+            string Infoboli = Console.ReadLine().ToUpper();
+            List<string> bolic = new List<string>();
 
 
-            string[] SimptomeFormatate = InfoSimpt.Split(',');
+            string[] SimptomeFormatate = Infoboli.Split(',');
 
             for (int i = 0; i < SimptomeFormatate.Length; i++)
             {
                 SimptomeFormatate[i] = SimptomeFormatate[i].Trim();
-                simpt.Add(SimptomeFormatate[i]);
+                bolic.Add(SimptomeFormatate[i]);
             }
 
-            patient.Simptome = simpt;
+            patient.Boli = bolic;
 
             return patient;
         }

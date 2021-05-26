@@ -38,6 +38,6 @@ namespace PatientClass
         MOTIVINTERNARE = 6,
         CARD = 7,
         DATAINTERNARE = 8,
-        SIMPTOME = 9
+        BOLI = 9
     }
 }

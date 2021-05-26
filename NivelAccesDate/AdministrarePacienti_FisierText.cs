@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace NivelAccesDate
 {
@@ -90,7 +91,7 @@ namespace NivelAccesDate
             return patients;
         }
 
-        public List<Patient> GetPatientsFromFile()
+        public List<Patient> GetPatient()
         {
             List<Patient> ListOfPatients = new List<Patient>();
 
@@ -113,11 +114,84 @@ namespace NivelAccesDate
             }
             catch (Exception eGen)
             {
-
                 throw new Exception("Eroare generica. Mesaj: " + eGen.Message);
             }
 
             return ListOfPatients;
+        }
+
+        public Patient GetPatient(int idPatient, List<Patient> lst)
+        {
+           foreach(Patient pat in lst)
+            {
+                if (pat.ID == idPatient)
+                    return pat;
+            }
+            return null;
+        }
+
+        public Patient GetPatient(string nume)
+        {
+            try
+            {
+                // instructiunea 'using' va apela sr.Close()
+                using (StreamReader sr = new StreamReader(NumeFisier))
+                {
+                    string linieDinFisier;
+
+                    //citeste cate o linie si creaza un obiect de tip Student pe baza datelor din linia citita
+                    while ((linieDinFisier = sr.ReadLine()) != null)
+                    {
+                        Patient patient = new Patient(linieDinFisier);
+                        if (patient.Nume.Equals(nume))
+                            return patient;
+                    }
+                }
+            }
+            catch (IOException eIO)
+            {
+                throw new Exception("Eroare la deschiderea fisierului. Mesaj: " + eIO.Message);
+            }
+            catch (Exception eGen)
+            {
+                throw new Exception("Eroare generica. Mesaj: " + eGen.Message);
+            }
+            return null;
+        }
+
+        public bool UpdatePacient(Patient PacientActualizat)
+        {
+            List<Patient> pacienti = GetPatient();
+            bool actualizareCuSucces = false;
+            try
+            {
+                //instructiunea 'using' va apela la final swFisierText.Close();
+                //al doilea parametru setat la 'false' al constructorului StreamWriter indica modul 'overwrite' de deschidere al fisierului
+                using (StreamWriter swFisierText = new StreamWriter(NumeFisier, false))
+                {
+                    foreach (Patient pacient in pacienti)
+                    {
+                        Patient PacientPentruScrisInFisier = pacient;
+                        //informatiile despre studentul actualizat vor fi preluate din parametrul "studentActualizat"
+                        if (pacient.ID == PacientActualizat.ID)
+                        {
+                            PacientPentruScrisInFisier = PacientActualizat;
+                        }
+                        swFisierText.WriteLine(PacientPentruScrisInFisier.ConvertToStringForFile());
+                    }
+                    actualizareCuSucces = true;
+                }
+            }
+            catch (IOException eIO)
+            {
+                throw new Exception("Eroare la deschiderea fisierului. Mesaj: " + eIO.Message);
+            }
+            catch (Exception eGen)
+            {
+                throw new Exception("Eroare generica. Mesaj: " + eGen.Message);
+            }
+
+            return actualizareCuSucces;
         }
     }
 }

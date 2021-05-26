@@ -30,9 +30,9 @@ namespace Interfata_Utilizator_WindowsForms
         private void InitializeComponent()
         {
             this.grpCitire = new System.Windows.Forms.GroupBox();
-            this.txtMotiv_Internare = new System.Windows.Forms.TextBox();
-            this.txtData_Internare = new System.Windows.Forms.TextBox();
-            this.txtData_Nastere = new System.Windows.Forms.TextBox();
+            this.txtMotivInternare = new System.Windows.Forms.TextBox();
+            this.dtpData_Internare = new System.Windows.Forms.DateTimePicker();
+            this.dtpData_Nastere = new System.Windows.Forms.DateTimePicker();
             this.txtVarsta = new System.Windows.Forms.TextBox();
             this.txtPrenume = new System.Windows.Forms.TextBox();
             this.txtNume = new System.Windows.Forms.TextBox();
@@ -48,28 +48,52 @@ namespace Interfata_Utilizator_WindowsForms
             this.btnCautare = new System.Windows.Forms.Button();
             this.btnModifica = new System.Windows.Forms.Button();
             this.btnAfiseaza = new System.Windows.Forms.Button();
-            this.listPacienti = new System.Windows.Forms.ListBox();
-            this.rdbMasculin = new System.Windows.Forms.RadioButton();
-            this.rdbFeminin = new System.Windows.Forms.RadioButton();
+            this.LstPatients = new System.Windows.Forms.ListBox();
             this.lblCard = new System.Windows.Forms.Label();
             this.rdbDa = new System.Windows.Forms.RadioButton();
             this.rdbNu = new System.Windows.Forms.RadioButton();
             this.grpCetatenii = new System.Windows.Forms.GroupBox();
-            this.grpSimptome = new System.Windows.Forms.GroupBox();
-            this.lblSimptome = new System.Windows.Forms.Label();
-            this.rdbRomana = new System.Windows.Forms.RadioButton();
-            this.rdbGermana = new System.Windows.Forms.RadioButton();
-            this.rdbEngleza = new System.Windows.Forms.RadioButton();
             this.rdbFranceza = new System.Windows.Forms.RadioButton();
+            this.rdbEngleza = new System.Windows.Forms.RadioButton();
+            this.rdbGermana = new System.Windows.Forms.RadioButton();
+            this.rdbRomana = new System.Windows.Forms.RadioButton();
+            this.grpSimptome = new System.Windows.Forms.GroupBox();
+            this.ckbPneumonie = new System.Windows.Forms.CheckBox();
+            this.ckbOreion = new System.Windows.Forms.CheckBox();
+            this.ckbKeratita = new System.Windows.Forms.CheckBox();
+            this.ckbRubeola = new System.Windows.Forms.CheckBox();
+            this.ckbArtroza = new System.Windows.Forms.CheckBox();
+            this.ckbOtita = new System.Windows.Forms.CheckBox();
+            this.ckbGuta = new System.Windows.Forms.CheckBox();
+            this.ckbGlaucom = new System.Windows.Forms.CheckBox();
+            this.ckbEpilepsie = new System.Windows.Forms.CheckBox();
+            this.ckbCancer = new System.Windows.Forms.CheckBox();
+            this.ckbDiabet = new System.Windows.Forms.CheckBox();
+            this.ckbStrabism = new System.Windows.Forms.CheckBox();
+            this.lblBoliCurente = new System.Windows.Forms.Label();
+            this.lblMesaj = new System.Windows.Forms.Label();
+            this.rdbMASCULIN = new System.Windows.Forms.RadioButton();
+            this.rdbFEMININ = new System.Windows.Forms.RadioButton();
+            this.grpGen = new System.Windows.Forms.GroupBox();
+            this.grpCard = new System.Windows.Forms.GroupBox();
+            this.dtgAfisare = new System.Windows.Forms.DataGridView();
+            this.BtnReseteaza = new System.Windows.Forms.Button();
+            this.BtnClear = new System.Windows.Forms.Button();
+            this.SpitalFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.BtnIesire = new System.Windows.Forms.Button();
             this.grpCitire.SuspendLayout();
             this.grpCetatenii.SuspendLayout();
+            this.grpSimptome.SuspendLayout();
+            this.grpGen.SuspendLayout();
+            this.grpCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAfisare)).BeginInit();
             this.SuspendLayout();
             // 
             // grpCitire
             // 
-            this.grpCitire.Controls.Add(this.txtMotiv_Internare);
-            this.grpCitire.Controls.Add(this.txtData_Internare);
-            this.grpCitire.Controls.Add(this.txtData_Nastere);
+            this.grpCitire.Controls.Add(this.txtMotivInternare);
+            this.grpCitire.Controls.Add(this.dtpData_Internare);
+            this.grpCitire.Controls.Add(this.dtpData_Nastere);
             this.grpCitire.Controls.Add(this.txtVarsta);
             this.grpCitire.Controls.Add(this.txtPrenume);
             this.grpCitire.Controls.Add(this.txtNume);
@@ -85,46 +109,46 @@ namespace Interfata_Utilizator_WindowsForms
             this.grpCitire.TabIndex = 0;
             this.grpCitire.TabStop = false;
             // 
-            // txtMotiv_Internare
+            // txtMotivInternare
             // 
-            this.txtMotiv_Internare.Location = new System.Drawing.Point(132, 223);
-            this.txtMotiv_Internare.Name = "txtMotiv_Internare";
-            this.txtMotiv_Internare.Size = new System.Drawing.Size(142, 20);
-            this.txtMotiv_Internare.TabIndex = 14;
+            this.txtMotivInternare.Location = new System.Drawing.Point(129, 223);
+            this.txtMotivInternare.Name = "txtMotivInternare";
+            this.txtMotivInternare.Size = new System.Drawing.Size(182, 20);
+            this.txtMotivInternare.TabIndex = 17;
             // 
-            // txtData_Internare
+            // dtpData_Internare
             // 
-            this.txtData_Internare.Location = new System.Drawing.Point(132, 183);
-            this.txtData_Internare.Name = "txtData_Internare";
-            this.txtData_Internare.Size = new System.Drawing.Size(142, 20);
-            this.txtData_Internare.TabIndex = 13;
+            this.dtpData_Internare.Location = new System.Drawing.Point(129, 186);
+            this.dtpData_Internare.Name = "dtpData_Internare";
+            this.dtpData_Internare.Size = new System.Drawing.Size(185, 20);
+            this.dtpData_Internare.TabIndex = 16;
             // 
-            // txtData_Nastere
+            // dtpData_Nastere
             // 
-            this.txtData_Nastere.Location = new System.Drawing.Point(132, 143);
-            this.txtData_Nastere.Name = "txtData_Nastere";
-            this.txtData_Nastere.Size = new System.Drawing.Size(142, 20);
-            this.txtData_Nastere.TabIndex = 12;
+            this.dtpData_Nastere.Location = new System.Drawing.Point(132, 145);
+            this.dtpData_Nastere.Name = "dtpData_Nastere";
+            this.dtpData_Nastere.Size = new System.Drawing.Size(182, 20);
+            this.dtpData_Nastere.TabIndex = 15;
             // 
             // txtVarsta
             // 
             this.txtVarsta.Location = new System.Drawing.Point(132, 105);
             this.txtVarsta.Name = "txtVarsta";
-            this.txtVarsta.Size = new System.Drawing.Size(142, 20);
+            this.txtVarsta.Size = new System.Drawing.Size(182, 20);
             this.txtVarsta.TabIndex = 11;
             // 
             // txtPrenume
             // 
             this.txtPrenume.Location = new System.Drawing.Point(132, 71);
             this.txtPrenume.Name = "txtPrenume";
-            this.txtPrenume.Size = new System.Drawing.Size(142, 20);
+            this.txtPrenume.Size = new System.Drawing.Size(182, 20);
             this.txtPrenume.TabIndex = 10;
             // 
             // txtNume
             // 
             this.txtNume.Location = new System.Drawing.Point(132, 36);
             this.txtNume.Name = "txtNume";
-            this.txtNume.Size = new System.Drawing.Size(142, 20);
+            this.txtNume.Size = new System.Drawing.Size(182, 20);
             this.txtNume.TabIndex = 9;
             // 
             // lblMotiv_Internare
@@ -148,7 +172,6 @@ namespace Interfata_Utilizator_WindowsForms
             this.lblData_Internare.Size = new System.Drawing.Size(100, 18);
             this.lblData_Internare.TabIndex = 7;
             this.lblData_Internare.Text = "Data Internare";
-            this.lblData_Internare.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // lblDNastere
             // 
@@ -182,7 +205,6 @@ namespace Interfata_Utilizator_WindowsForms
             this.lblPrenume.Size = new System.Drawing.Size(68, 18);
             this.lblPrenume.TabIndex = 2;
             this.lblPrenume.Text = "Prenume";
-            this.lblPrenume.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblNume
             // 
@@ -205,7 +227,6 @@ namespace Interfata_Utilizator_WindowsForms
             this.lblGen.Size = new System.Drawing.Size(51, 18);
             this.lblGen.TabIndex = 3;
             this.lblGen.Text = "Genul:";
-            this.lblGen.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // lblCetatean
             // 
@@ -226,7 +247,7 @@ namespace Interfata_Utilizator_WindowsForms
             this.btnAdaugare.TabIndex = 6;
             this.btnAdaugare.Text = "Adauga";
             this.btnAdaugare.UseVisualStyleBackColor = true;
-            this.btnAdaugare.Click += new System.EventHandler(this.btnAdaugare_Click);
+            this.btnAdaugare.Click += new System.EventHandler(this.BtnAdaugareClick);
             // 
             // btnCautare
             // 
@@ -236,6 +257,7 @@ namespace Interfata_Utilizator_WindowsForms
             this.btnCautare.TabIndex = 7;
             this.btnCautare.Text = "Cautare";
             this.btnCautare.UseVisualStyleBackColor = true;
+            this.btnCautare.Click += new System.EventHandler(this.BtnCautare_Click);
             // 
             // btnModifica
             // 
@@ -245,6 +267,7 @@ namespace Interfata_Utilizator_WindowsForms
             this.btnModifica.TabIndex = 8;
             this.btnModifica.Text = "Modifica";
             this.btnModifica.UseVisualStyleBackColor = true;
+            this.btnModifica.Click += new System.EventHandler(this.BtnModifica_Click);
             // 
             // btnAfiseaza
             // 
@@ -254,40 +277,16 @@ namespace Interfata_Utilizator_WindowsForms
             this.btnAfiseaza.TabIndex = 9;
             this.btnAfiseaza.Text = "Afiseaza";
             this.btnAfiseaza.UseVisualStyleBackColor = true;
+            this.btnAfiseaza.Click += new System.EventHandler(this.BtnAfiseaza_Click);
             // 
-            // listPacienti
+            // LstPatients
             // 
-            this.listPacienti.FormattingEnabled = true;
-            this.listPacienti.Location = new System.Drawing.Point(556, 12);
-            this.listPacienti.Name = "listPacienti";
-            this.listPacienti.Size = new System.Drawing.Size(476, 498);
-            this.listPacienti.TabIndex = 10;
-            this.listPacienti.SelectedIndexChanged += new System.EventHandler(this.listPacienti_SelectedIndexChanged);
-            // 
-            // rdbMasculin
-            // 
-            this.rdbMasculin.AutoSize = true;
-            this.rdbMasculin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbMasculin.Location = new System.Drawing.Point(367, 47);
-            this.rdbMasculin.Name = "rdbMasculin";
-            this.rdbMasculin.Size = new System.Drawing.Size(85, 22);
-            this.rdbMasculin.TabIndex = 11;
-            this.rdbMasculin.TabStop = true;
-            this.rdbMasculin.Text = "Masculin";
-            this.rdbMasculin.UseVisualStyleBackColor = true;
-            // 
-            // rdbFeminin
-            // 
-            this.rdbFeminin.AutoSize = true;
-            this.rdbFeminin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbFeminin.Location = new System.Drawing.Point(367, 75);
-            this.rdbFeminin.Name = "rdbFeminin";
-            this.rdbFeminin.Size = new System.Drawing.Size(78, 22);
-            this.rdbFeminin.TabIndex = 12;
-            this.rdbFeminin.TabStop = true;
-            this.rdbFeminin.Text = "Feminin";
-            this.rdbFeminin.UseVisualStyleBackColor = true;
-            this.rdbFeminin.CheckedChanged += new System.EventHandler(this.rdbFeminin_CheckedChanged);
+            this.LstPatients.FormattingEnabled = true;
+            this.LstPatients.Location = new System.Drawing.Point(506, 16);
+            this.LstPatients.Name = "LstPatients";
+            this.LstPatients.Size = new System.Drawing.Size(948, 264);
+            this.LstPatients.TabIndex = 10;
+            this.LstPatients.SelectedIndexChanged += new System.EventHandler(this.ListPacienti_SelectedIndexChanged);
             // 
             // lblCard
             // 
@@ -304,7 +303,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             this.rdbDa.AutoSize = true;
             this.rdbDa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbDa.Location = new System.Drawing.Point(367, 401);
+            this.rdbDa.Location = new System.Drawing.Point(6, 45);
             this.rdbDa.Name = "rdbDa";
             this.rdbDa.Size = new System.Drawing.Size(45, 22);
             this.rdbDa.TabIndex = 18;
@@ -316,7 +315,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             this.rdbNu.AutoSize = true;
             this.rdbNu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbNu.Location = new System.Drawing.Point(427, 401);
+            this.rdbNu.Location = new System.Drawing.Point(57, 45);
             this.rdbNu.Name = "rdbNu";
             this.rdbNu.Size = new System.Drawing.Size(45, 22);
             this.rdbNu.TabIndex = 19;
@@ -332,63 +331,9 @@ namespace Interfata_Utilizator_WindowsForms
             this.grpCetatenii.Controls.Add(this.rdbRomana);
             this.grpCetatenii.Location = new System.Drawing.Point(369, 162);
             this.grpCetatenii.Name = "grpCetatenii";
-            this.grpCetatenii.Size = new System.Drawing.Size(181, 181);
+            this.grpCetatenii.Size = new System.Drawing.Size(131, 181);
             this.grpCetatenii.TabIndex = 20;
             this.grpCetatenii.TabStop = false;
-            // 
-            // grpSimptome
-            // 
-            this.grpSimptome.Location = new System.Drawing.Point(0, 307);
-            this.grpSimptome.Name = "grpSimptome";
-            this.grpSimptome.Size = new System.Drawing.Size(361, 244);
-            this.grpSimptome.TabIndex = 21;
-            this.grpSimptome.TabStop = false;
-            // 
-            // lblSimptome
-            // 
-            this.lblSimptome.AutoSize = true;
-            this.lblSimptome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSimptome.Location = new System.Drawing.Point(12, 286);
-            this.lblSimptome.Name = "lblSimptome";
-            this.lblSimptome.Size = new System.Drawing.Size(76, 18);
-            this.lblSimptome.TabIndex = 0;
-            this.lblSimptome.Text = "Simptome";
-            // 
-            // rdbRomana
-            // 
-            this.rdbRomana.AutoSize = true;
-            this.rdbRomana.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbRomana.Location = new System.Drawing.Point(6, 23);
-            this.rdbRomana.Name = "rdbRomana";
-            this.rdbRomana.Size = new System.Drawing.Size(83, 22);
-            this.rdbRomana.TabIndex = 12;
-            this.rdbRomana.TabStop = true;
-            this.rdbRomana.Text = "Romana";
-            this.rdbRomana.UseVisualStyleBackColor = true;
-            // 
-            // rdbGermana
-            // 
-            this.rdbGermana.AutoSize = true;
-            this.rdbGermana.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbGermana.Location = new System.Drawing.Point(6, 63);
-            this.rdbGermana.Name = "rdbGermana";
-            this.rdbGermana.Size = new System.Drawing.Size(88, 22);
-            this.rdbGermana.TabIndex = 13;
-            this.rdbGermana.TabStop = true;
-            this.rdbGermana.Text = "Germana";
-            this.rdbGermana.UseVisualStyleBackColor = true;
-            // 
-            // rdbEngleza
-            // 
-            this.rdbEngleza.AutoSize = true;
-            this.rdbEngleza.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbEngleza.Location = new System.Drawing.Point(6, 104);
-            this.rdbEngleza.Name = "rdbEngleza";
-            this.rdbEngleza.Size = new System.Drawing.Size(79, 22);
-            this.rdbEngleza.TabIndex = 14;
-            this.rdbEngleza.TabStop = true;
-            this.rdbEngleza.Text = "Engleza";
-            this.rdbEngleza.UseVisualStyleBackColor = true;
             // 
             // rdbFranceza
             // 
@@ -402,20 +347,326 @@ namespace Interfata_Utilizator_WindowsForms
             this.rdbFranceza.Text = "Franceza";
             this.rdbFranceza.UseVisualStyleBackColor = true;
             // 
+            // rdbEngleza
+            // 
+            this.rdbEngleza.AutoSize = true;
+            this.rdbEngleza.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbEngleza.Location = new System.Drawing.Point(6, 104);
+            this.rdbEngleza.Name = "rdbEngleza";
+            this.rdbEngleza.Size = new System.Drawing.Size(79, 22);
+            this.rdbEngleza.TabIndex = 14;
+            this.rdbEngleza.TabStop = true;
+            this.rdbEngleza.Text = "Engleza";
+            this.rdbEngleza.UseVisualStyleBackColor = true;
+            // 
+            // rdbGermana
+            // 
+            this.rdbGermana.AutoSize = true;
+            this.rdbGermana.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbGermana.Location = new System.Drawing.Point(6, 63);
+            this.rdbGermana.Name = "rdbGermana";
+            this.rdbGermana.Size = new System.Drawing.Size(88, 22);
+            this.rdbGermana.TabIndex = 13;
+            this.rdbGermana.TabStop = true;
+            this.rdbGermana.Text = "Germana";
+            this.rdbGermana.UseVisualStyleBackColor = true;
+            // 
+            // rdbRomana
+            // 
+            this.rdbRomana.AutoSize = true;
+            this.rdbRomana.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbRomana.Location = new System.Drawing.Point(6, 22);
+            this.rdbRomana.Name = "rdbRomana";
+            this.rdbRomana.Size = new System.Drawing.Size(83, 22);
+            this.rdbRomana.TabIndex = 12;
+            this.rdbRomana.TabStop = true;
+            this.rdbRomana.Text = "Romana";
+            this.rdbRomana.UseVisualStyleBackColor = true;
+            // 
+            // grpSimptome
+            // 
+            this.grpSimptome.Controls.Add(this.ckbPneumonie);
+            this.grpSimptome.Controls.Add(this.ckbOreion);
+            this.grpSimptome.Controls.Add(this.ckbKeratita);
+            this.grpSimptome.Controls.Add(this.ckbRubeola);
+            this.grpSimptome.Controls.Add(this.ckbArtroza);
+            this.grpSimptome.Controls.Add(this.ckbOtita);
+            this.grpSimptome.Controls.Add(this.ckbGuta);
+            this.grpSimptome.Controls.Add(this.ckbGlaucom);
+            this.grpSimptome.Controls.Add(this.ckbEpilepsie);
+            this.grpSimptome.Controls.Add(this.ckbCancer);
+            this.grpSimptome.Controls.Add(this.ckbDiabet);
+            this.grpSimptome.Controls.Add(this.ckbStrabism);
+            this.grpSimptome.Location = new System.Drawing.Point(0, 307);
+            this.grpSimptome.Name = "grpSimptome";
+            this.grpSimptome.Size = new System.Drawing.Size(361, 241);
+            this.grpSimptome.TabIndex = 21;
+            this.grpSimptome.TabStop = false;
+            this.grpSimptome.Text = " ";
+            // 
+            // ckbPneumonie
+            // 
+            this.ckbPneumonie.AutoSize = true;
+            this.ckbPneumonie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbPneumonie.Location = new System.Drawing.Point(12, 209);
+            this.ckbPneumonie.Name = "ckbPneumonie";
+            this.ckbPneumonie.Size = new System.Drawing.Size(102, 22);
+            this.ckbPneumonie.TabIndex = 17;
+            this.ckbPneumonie.Text = "Pneumonie";
+            this.ckbPneumonie.UseVisualStyleBackColor = true;
+            this.ckbPneumonie.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // ckbOreion
+            // 
+            this.ckbOreion.AutoSize = true;
+            this.ckbOreion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbOreion.Location = new System.Drawing.Point(197, 209);
+            this.ckbOreion.Name = "ckbOreion";
+            this.ckbOreion.Size = new System.Drawing.Size(72, 22);
+            this.ckbOreion.TabIndex = 16;
+            this.ckbOreion.Text = "Oreion";
+            this.ckbOreion.UseVisualStyleBackColor = true;
+            this.ckbOreion.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // ckbKeratita
+            // 
+            this.ckbKeratita.AutoSize = true;
+            this.ckbKeratita.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbKeratita.Location = new System.Drawing.Point(197, 172);
+            this.ckbKeratita.Name = "ckbKeratita";
+            this.ckbKeratita.Size = new System.Drawing.Size(77, 22);
+            this.ckbKeratita.TabIndex = 15;
+            this.ckbKeratita.Text = "Keratita";
+            this.ckbKeratita.UseVisualStyleBackColor = true;
+            this.ckbKeratita.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // ckbRubeola
+            // 
+            this.ckbRubeola.AutoSize = true;
+            this.ckbRubeola.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbRubeola.Location = new System.Drawing.Point(12, 134);
+            this.ckbRubeola.Name = "ckbRubeola";
+            this.ckbRubeola.Size = new System.Drawing.Size(82, 22);
+            this.ckbRubeola.TabIndex = 14;
+            this.ckbRubeola.Text = "Rubeola";
+            this.ckbRubeola.UseVisualStyleBackColor = true;
+            this.ckbRubeola.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // ckbArtroza
+            // 
+            this.ckbArtroza.AutoSize = true;
+            this.ckbArtroza.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbArtroza.Location = new System.Drawing.Point(12, 94);
+            this.ckbArtroza.Name = "ckbArtroza";
+            this.ckbArtroza.Size = new System.Drawing.Size(75, 22);
+            this.ckbArtroza.TabIndex = 13;
+            this.ckbArtroza.Text = "Artroza";
+            this.ckbArtroza.UseVisualStyleBackColor = true;
+            this.ckbArtroza.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // ckbOtita
+            // 
+            this.ckbOtita.AutoSize = true;
+            this.ckbOtita.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbOtita.Location = new System.Drawing.Point(12, 172);
+            this.ckbOtita.Name = "ckbOtita";
+            this.ckbOtita.Size = new System.Drawing.Size(58, 22);
+            this.ckbOtita.TabIndex = 12;
+            this.ckbOtita.Text = "Otita";
+            this.ckbOtita.UseVisualStyleBackColor = true;
+            this.ckbOtita.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // ckbGuta
+            // 
+            this.ckbGuta.AutoSize = true;
+            this.ckbGuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbGuta.Location = new System.Drawing.Point(197, 134);
+            this.ckbGuta.Name = "ckbGuta";
+            this.ckbGuta.Size = new System.Drawing.Size(59, 22);
+            this.ckbGuta.TabIndex = 11;
+            this.ckbGuta.Text = "Guta";
+            this.ckbGuta.UseVisualStyleBackColor = true;
+            this.ckbGuta.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // ckbGlaucom
+            // 
+            this.ckbGlaucom.AutoSize = true;
+            this.ckbGlaucom.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbGlaucom.Location = new System.Drawing.Point(197, 95);
+            this.ckbGlaucom.Name = "ckbGlaucom";
+            this.ckbGlaucom.Size = new System.Drawing.Size(88, 22);
+            this.ckbGlaucom.TabIndex = 10;
+            this.ckbGlaucom.Text = "Glaucom";
+            this.ckbGlaucom.UseVisualStyleBackColor = true;
+            this.ckbGlaucom.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // ckbEpilepsie
+            // 
+            this.ckbEpilepsie.AutoSize = true;
+            this.ckbEpilepsie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbEpilepsie.Location = new System.Drawing.Point(197, 58);
+            this.ckbEpilepsie.Name = "ckbEpilepsie";
+            this.ckbEpilepsie.Size = new System.Drawing.Size(86, 22);
+            this.ckbEpilepsie.TabIndex = 9;
+            this.ckbEpilepsie.Text = "Epilepsie";
+            this.ckbEpilepsie.UseVisualStyleBackColor = true;
+            this.ckbEpilepsie.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // ckbCancer
+            // 
+            this.ckbCancer.AutoSize = true;
+            this.ckbCancer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbCancer.Location = new System.Drawing.Point(12, 58);
+            this.ckbCancer.Name = "ckbCancer";
+            this.ckbCancer.Size = new System.Drawing.Size(75, 22);
+            this.ckbCancer.TabIndex = 8;
+            this.ckbCancer.Text = "Cancer";
+            this.ckbCancer.UseVisualStyleBackColor = true;
+            this.ckbCancer.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // ckbDiabet
+            // 
+            this.ckbDiabet.AutoSize = true;
+            this.ckbDiabet.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbDiabet.Location = new System.Drawing.Point(197, 20);
+            this.ckbDiabet.Name = "ckbDiabet";
+            this.ckbDiabet.Size = new System.Drawing.Size(69, 22);
+            this.ckbDiabet.TabIndex = 7;
+            this.ckbDiabet.Text = "Diabet";
+            this.ckbDiabet.UseVisualStyleBackColor = true;
+            this.ckbDiabet.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // ckbStrabism
+            // 
+            this.ckbStrabism.AutoSize = true;
+            this.ckbStrabism.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbStrabism.Location = new System.Drawing.Point(12, 19);
+            this.ckbStrabism.Name = "ckbStrabism";
+            this.ckbStrabism.Size = new System.Drawing.Size(86, 22);
+            this.ckbStrabism.TabIndex = 0;
+            this.ckbStrabism.Text = "Strabism";
+            this.ckbStrabism.UseVisualStyleBackColor = true;
+            this.ckbStrabism.CheckedChanged += new System.EventHandler(this.BoliCurente_CheckedChanged);
+            // 
+            // lblBoliCurente
+            // 
+            this.lblBoliCurente.AutoSize = true;
+            this.lblBoliCurente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBoliCurente.Location = new System.Drawing.Point(12, 286);
+            this.lblBoliCurente.Name = "lblBoliCurente";
+            this.lblBoliCurente.Size = new System.Drawing.Size(86, 18);
+            this.lblBoliCurente.TabIndex = 0;
+            this.lblBoliCurente.Text = "Boli curente";
+            // 
+            // lblMesaj
+            // 
+            this.lblMesaj.AutoSize = true;
+            this.lblMesaj.Location = new System.Drawing.Point(9, 551);
+            this.lblMesaj.Name = "lblMesaj";
+            this.lblMesaj.Size = new System.Drawing.Size(0, 13);
+            this.lblMesaj.TabIndex = 22;
+            // 
+            // rdbMASCULIN
+            // 
+            this.rdbMASCULIN.AutoSize = true;
+            this.rdbMASCULIN.Location = new System.Drawing.Point(16, 19);
+            this.rdbMASCULIN.Name = "rdbMASCULIN";
+            this.rdbMASCULIN.Size = new System.Drawing.Size(80, 17);
+            this.rdbMASCULIN.TabIndex = 23;
+            this.rdbMASCULIN.TabStop = true;
+            this.rdbMASCULIN.Text = "MASCULIN";
+            this.rdbMASCULIN.UseVisualStyleBackColor = true;
+            // 
+            // rdbFEMININ
+            // 
+            this.rdbFEMININ.AutoSize = true;
+            this.rdbFEMININ.Location = new System.Drawing.Point(16, 55);
+            this.rdbFEMININ.Name = "rdbFEMININ";
+            this.rdbFEMININ.Size = new System.Drawing.Size(69, 17);
+            this.rdbFEMININ.TabIndex = 24;
+            this.rdbFEMININ.TabStop = true;
+            this.rdbFEMININ.Text = "FEMININ";
+            this.rdbFEMININ.UseVisualStyleBackColor = true;
+            // 
+            // grpGen
+            // 
+            this.grpGen.Controls.Add(this.rdbMASCULIN);
+            this.grpGen.Controls.Add(this.rdbFEMININ);
+            this.grpGen.Location = new System.Drawing.Point(367, 37);
+            this.grpGen.Name = "grpGen";
+            this.grpGen.Size = new System.Drawing.Size(133, 85);
+            this.grpGen.TabIndex = 25;
+            this.grpGen.TabStop = false;
+            // 
+            // grpCard
+            // 
+            this.grpCard.Controls.Add(this.rdbDa);
+            this.grpCard.Controls.Add(this.rdbNu);
+            this.grpCard.Location = new System.Drawing.Point(369, 386);
+            this.grpCard.Name = "grpCard";
+            this.grpCard.Size = new System.Drawing.Size(131, 103);
+            this.grpCard.TabIndex = 26;
+            this.grpCard.TabStop = false;
+            // 
+            // dtgAfisare
+            // 
+            this.dtgAfisare.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgAfisare.Location = new System.Drawing.Point(506, 282);
+            this.dtgAfisare.Name = "dtgAfisare";
+            this.dtgAfisare.Size = new System.Drawing.Size(948, 284);
+            this.dtgAfisare.TabIndex = 27;
+            // 
+            // BtnReseteaza
+            // 
+            this.BtnReseteaza.Location = new System.Drawing.Point(774, 572);
+            this.BtnReseteaza.Name = "BtnReseteaza";
+            this.BtnReseteaza.Size = new System.Drawing.Size(140, 42);
+            this.BtnReseteaza.TabIndex = 28;
+            this.BtnReseteaza.Text = "Reset";
+            this.BtnReseteaza.UseVisualStyleBackColor = true;
+            this.BtnReseteaza.Click += new System.EventHandler(this.BtnReseteaza_Click);
+            // 
+            // BtnClear
+            // 
+            this.BtnClear.Location = new System.Drawing.Point(1402, 240);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.Size = new System.Drawing.Size(52, 35);
+            this.BtnClear.TabIndex = 29;
+            this.BtnClear.Text = "Reset";
+            this.BtnClear.UseVisualStyleBackColor = true;
+            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
+            // 
+            // SpitalFileDialog
+            // 
+            this.SpitalFileDialog.FileName = "SpitalFileDialog";
+            // 
+            // BtnIesire
+            // 
+            this.BtnIesire.Location = new System.Drawing.Point(1297, 572);
+            this.BtnIesire.Name = "BtnIesire";
+            this.BtnIesire.Size = new System.Drawing.Size(140, 42);
+            this.BtnIesire.TabIndex = 30;
+            this.BtnIesire.Text = "Close";
+            this.BtnIesire.UseVisualStyleBackColor = true;
+            this.BtnIesire.Click += new System.EventHandler(this.BtnIesire_Click);
+            // 
             // Spital
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 661);
-            this.Controls.Add(this.lblSimptome);
+            this.ClientSize = new System.Drawing.Size(1477, 661);
+            this.Controls.Add(this.BtnIesire);
+            this.Controls.Add(this.BtnClear);
+            this.Controls.Add(this.BtnReseteaza);
+            this.Controls.Add(this.dtgAfisare);
+            this.Controls.Add(this.grpCard);
+            this.Controls.Add(this.grpGen);
+            this.Controls.Add(this.lblMesaj);
+            this.Controls.Add(this.lblBoliCurente);
             this.Controls.Add(this.grpSimptome);
             this.Controls.Add(this.grpCetatenii);
-            this.Controls.Add(this.rdbNu);
-            this.Controls.Add(this.rdbDa);
             this.Controls.Add(this.lblCard);
-            this.Controls.Add(this.rdbFeminin);
-            this.Controls.Add(this.rdbMasculin);
-            this.Controls.Add(this.listPacienti);
+            this.Controls.Add(this.LstPatients);
             this.Controls.Add(this.btnAfiseaza);
             this.Controls.Add(this.btnModifica);
             this.Controls.Add(this.btnCautare);
@@ -429,6 +680,13 @@ namespace Interfata_Utilizator_WindowsForms
             this.grpCitire.PerformLayout();
             this.grpCetatenii.ResumeLayout(false);
             this.grpCetatenii.PerformLayout();
+            this.grpSimptome.ResumeLayout(false);
+            this.grpSimptome.PerformLayout();
+            this.grpGen.ResumeLayout(false);
+            this.grpGen.PerformLayout();
+            this.grpCard.ResumeLayout(false);
+            this.grpCard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAfisare)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,9 +703,6 @@ namespace Interfata_Utilizator_WindowsForms
         private System.Windows.Forms.Label lblDNastere;
         private System.Windows.Forms.Label lblData_Internare;
         private System.Windows.Forms.Label lblMotiv_Internare;
-        private System.Windows.Forms.TextBox txtMotiv_Internare;
-        private System.Windows.Forms.TextBox txtData_Internare;
-        private System.Windows.Forms.TextBox txtData_Nastere;
         private System.Windows.Forms.TextBox txtVarsta;
         private System.Windows.Forms.TextBox txtPrenume;
         private System.Windows.Forms.TextBox txtNume;
@@ -455,9 +710,7 @@ namespace Interfata_Utilizator_WindowsForms
         private System.Windows.Forms.Button btnCautare;
         private System.Windows.Forms.Button btnModifica;
         private System.Windows.Forms.Button btnAfiseaza;
-        private System.Windows.Forms.ListBox listPacienti;
-        private System.Windows.Forms.RadioButton rdbMasculin;
-        private System.Windows.Forms.RadioButton rdbFeminin;
+        private System.Windows.Forms.ListBox LstPatients;
         private System.Windows.Forms.Label lblCard;
         private System.Windows.Forms.RadioButton rdbDa;
         private System.Windows.Forms.RadioButton rdbNu;
@@ -467,7 +720,32 @@ namespace Interfata_Utilizator_WindowsForms
         private System.Windows.Forms.RadioButton rdbGermana;
         private System.Windows.Forms.RadioButton rdbRomana;
         private System.Windows.Forms.GroupBox grpSimptome;
-        private System.Windows.Forms.Label lblSimptome;
+        private System.Windows.Forms.Label lblBoliCurente;
+        private System.Windows.Forms.CheckBox ckbPneumonie;
+        private System.Windows.Forms.CheckBox ckbOreion;
+        private System.Windows.Forms.CheckBox ckbKeratita;
+        private System.Windows.Forms.CheckBox ckbRubeola;
+        private System.Windows.Forms.CheckBox ckbArtroza;
+        private System.Windows.Forms.CheckBox ckbOtita;
+        private System.Windows.Forms.CheckBox ckbGuta;
+        private System.Windows.Forms.CheckBox ckbGlaucom;
+        private System.Windows.Forms.CheckBox ckbEpilepsie;
+        private System.Windows.Forms.CheckBox ckbCancer;
+        private System.Windows.Forms.CheckBox ckbDiabet;
+        private System.Windows.Forms.CheckBox ckbStrabism;
+        private System.Windows.Forms.Label lblMesaj;
+        private System.Windows.Forms.DateTimePicker dtpData_Internare;
+        private System.Windows.Forms.DateTimePicker dtpData_Nastere;
+        private System.Windows.Forms.TextBox txtMotivInternare;
+        private System.Windows.Forms.RadioButton rdbMASCULIN;
+        private System.Windows.Forms.RadioButton rdbFEMININ;
+        private System.Windows.Forms.GroupBox grpGen;
+        private System.Windows.Forms.GroupBox grpCard;
+        private System.Windows.Forms.DataGridView dtgAfisare;
+        private System.Windows.Forms.Button BtnReseteaza;
+        private System.Windows.Forms.Button BtnClear;
+        private System.Windows.Forms.OpenFileDialog SpitalFileDialog;
+        private System.Windows.Forms.Button BtnIesire;
     }
 }
 

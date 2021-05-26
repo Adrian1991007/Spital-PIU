@@ -11,5 +11,13 @@ namespace NivelAccesDate
         void NewListOfPatients(List<Patient> ListOfPatients);
 
         ArrayList GetPatients();
+
+        Patient GetPatient(int idPatient, List<Patient> lst);
+
+        Patient GetPatient(string nume);
+
+        bool UpdatePacient(Patient PacientActualizat);
+
+        List<Patient> GetPatient();
     }
 }
