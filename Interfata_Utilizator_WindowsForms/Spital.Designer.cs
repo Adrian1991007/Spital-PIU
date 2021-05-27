@@ -81,12 +81,17 @@ namespace Interfata_Utilizator_WindowsForms
             this.BtnClear = new System.Windows.Forms.Button();
             this.SpitalFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.BtnIesire = new System.Windows.Forms.Button();
+            this.Menu = new System.Windows.Forms.MenuStrip();
+            this.FileTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemNewForm = new System.Windows.Forms.ToolStripMenuItem();
             this.grpCitire.SuspendLayout();
             this.grpCetatenii.SuspendLayout();
             this.grpSimptome.SuspendLayout();
             this.grpGen.SuspendLayout();
             this.grpCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAfisare)).BeginInit();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpCitire
@@ -103,7 +108,7 @@ namespace Interfata_Utilizator_WindowsForms
             this.grpCitire.Controls.Add(this.lblVarsta);
             this.grpCitire.Controls.Add(this.lblPrenume);
             this.grpCitire.Controls.Add(this.lblNume);
-            this.grpCitire.Location = new System.Drawing.Point(0, 0);
+            this.grpCitire.Location = new System.Drawing.Point(2, 29);
             this.grpCitire.Name = "grpCitire";
             this.grpCitire.Size = new System.Drawing.Size(361, 275);
             this.grpCitire.TabIndex = 0;
@@ -221,7 +226,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             this.lblGen.AutoSize = true;
             this.lblGen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGen.Location = new System.Drawing.Point(364, 16);
+            this.lblGen.Location = new System.Drawing.Point(364, 62);
             this.lblGen.Margin = new System.Windows.Forms.Padding(2, 0, 3, 0);
             this.lblGen.Name = "lblGen";
             this.lblGen.Size = new System.Drawing.Size(51, 18);
@@ -232,7 +237,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             this.lblCetatean.AutoSize = true;
             this.lblCetatean.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCetatean.Location = new System.Drawing.Point(366, 125);
+            this.lblCetatean.Location = new System.Drawing.Point(368, 182);
             this.lblCetatean.Margin = new System.Windows.Forms.Padding(2, 0, 3, 0);
             this.lblCetatean.Name = "lblCetatean";
             this.lblCetatean.Size = new System.Drawing.Size(74, 18);
@@ -241,7 +246,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             // btnAdaugare
             // 
-            this.btnAdaugare.Location = new System.Drawing.Point(25, 572);
+            this.btnAdaugare.Location = new System.Drawing.Point(27, 594);
             this.btnAdaugare.Name = "btnAdaugare";
             this.btnAdaugare.Size = new System.Drawing.Size(140, 42);
             this.btnAdaugare.TabIndex = 6;
@@ -251,7 +256,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             // btnCautare
             // 
-            this.btnCautare.Location = new System.Drawing.Point(221, 572);
+            this.btnCautare.Location = new System.Drawing.Point(253, 594);
             this.btnCautare.Name = "btnCautare";
             this.btnCautare.Size = new System.Drawing.Size(140, 42);
             this.btnCautare.TabIndex = 7;
@@ -261,7 +266,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             // btnModifica
             // 
-            this.btnModifica.Location = new System.Drawing.Point(416, 572);
+            this.btnModifica.Location = new System.Drawing.Point(481, 594);
             this.btnModifica.Name = "btnModifica";
             this.btnModifica.Size = new System.Drawing.Size(140, 42);
             this.btnModifica.TabIndex = 8;
@@ -271,7 +276,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             // btnAfiseaza
             // 
-            this.btnAfiseaza.Location = new System.Drawing.Point(609, 572);
+            this.btnAfiseaza.Location = new System.Drawing.Point(684, 594);
             this.btnAfiseaza.Name = "btnAfiseaza";
             this.btnAfiseaza.Size = new System.Drawing.Size(140, 42);
             this.btnAfiseaza.TabIndex = 9;
@@ -292,7 +297,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             this.lblCard.AutoSize = true;
             this.lblCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCard.Location = new System.Drawing.Point(366, 365);
+            this.lblCard.Location = new System.Drawing.Point(368, 399);
             this.lblCard.Margin = new System.Windows.Forms.Padding(2, 0, 3, 0);
             this.lblCard.Name = "lblCard";
             this.lblCard.Size = new System.Drawing.Size(40, 18);
@@ -329,7 +334,7 @@ namespace Interfata_Utilizator_WindowsForms
             this.grpCetatenii.Controls.Add(this.rdbEngleza);
             this.grpCetatenii.Controls.Add(this.rdbGermana);
             this.grpCetatenii.Controls.Add(this.rdbRomana);
-            this.grpCetatenii.Location = new System.Drawing.Point(369, 162);
+            this.grpCetatenii.Location = new System.Drawing.Point(369, 203);
             this.grpCetatenii.Name = "grpCetatenii";
             this.grpCetatenii.Size = new System.Drawing.Size(131, 181);
             this.grpCetatenii.TabIndex = 20;
@@ -397,7 +402,7 @@ namespace Interfata_Utilizator_WindowsForms
             this.grpSimptome.Controls.Add(this.ckbCancer);
             this.grpSimptome.Controls.Add(this.ckbDiabet);
             this.grpSimptome.Controls.Add(this.ckbStrabism);
-            this.grpSimptome.Location = new System.Drawing.Point(0, 307);
+            this.grpSimptome.Location = new System.Drawing.Point(2, 325);
             this.grpSimptome.Name = "grpSimptome";
             this.grpSimptome.Size = new System.Drawing.Size(361, 241);
             this.grpSimptome.TabIndex = 21;
@@ -552,7 +557,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             this.lblBoliCurente.AutoSize = true;
             this.lblBoliCurente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBoliCurente.Location = new System.Drawing.Point(12, 286);
+            this.lblBoliCurente.Location = new System.Drawing.Point(4, 307);
             this.lblBoliCurente.Name = "lblBoliCurente";
             this.lblBoliCurente.Size = new System.Drawing.Size(86, 18);
             this.lblBoliCurente.TabIndex = 0;
@@ -592,7 +597,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             this.grpGen.Controls.Add(this.rdbMASCULIN);
             this.grpGen.Controls.Add(this.rdbFEMININ);
-            this.grpGen.Location = new System.Drawing.Point(367, 37);
+            this.grpGen.Location = new System.Drawing.Point(367, 94);
             this.grpGen.Name = "grpGen";
             this.grpGen.Size = new System.Drawing.Size(133, 85);
             this.grpGen.TabIndex = 25;
@@ -602,7 +607,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             this.grpCard.Controls.Add(this.rdbDa);
             this.grpCard.Controls.Add(this.rdbNu);
-            this.grpCard.Location = new System.Drawing.Point(369, 386);
+            this.grpCard.Location = new System.Drawing.Point(369, 420);
             this.grpCard.Name = "grpCard";
             this.grpCard.Size = new System.Drawing.Size(131, 103);
             this.grpCard.TabIndex = 26;
@@ -618,7 +623,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             // BtnReseteaza
             // 
-            this.BtnReseteaza.Location = new System.Drawing.Point(774, 572);
+            this.BtnReseteaza.Location = new System.Drawing.Point(901, 594);
             this.BtnReseteaza.Name = "BtnReseteaza";
             this.BtnReseteaza.Size = new System.Drawing.Size(140, 42);
             this.BtnReseteaza.TabIndex = 28;
@@ -628,7 +633,7 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             // BtnClear
             // 
-            this.BtnClear.Location = new System.Drawing.Point(1402, 240);
+            this.BtnClear.Location = new System.Drawing.Point(1402, 247);
             this.BtnClear.Name = "BtnClear";
             this.BtnClear.Size = new System.Drawing.Size(52, 35);
             this.BtnClear.TabIndex = 29;
@@ -642,13 +647,47 @@ namespace Interfata_Utilizator_WindowsForms
             // 
             // BtnIesire
             // 
-            this.BtnIesire.Location = new System.Drawing.Point(1297, 572);
+            this.BtnIesire.Location = new System.Drawing.Point(1314, 594);
             this.BtnIesire.Name = "BtnIesire";
             this.BtnIesire.Size = new System.Drawing.Size(140, 42);
             this.BtnIesire.TabIndex = 30;
             this.BtnIesire.Text = "Close";
             this.BtnIesire.UseVisualStyleBackColor = true;
             this.BtnIesire.Click += new System.EventHandler(this.BtnIesire_Click);
+            // 
+            // Menu
+            // 
+            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileTool});
+            this.Menu.Location = new System.Drawing.Point(0, 0);
+            this.Menu.Name = "Menu";
+            this.Menu.Size = new System.Drawing.Size(1477, 27);
+            this.Menu.TabIndex = 32;
+            this.Menu.Text = "menuStrip1";
+            // 
+            // FileTool
+            // 
+            this.FileTool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItemOpen,
+            this.MenuItemNewForm});
+            this.FileTool.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.FileTool.Name = "FileTool";
+            this.FileTool.Size = new System.Drawing.Size(41, 23);
+            this.FileTool.Text = "File";
+            // 
+            // MenuItemOpen
+            // 
+            this.MenuItemOpen.Name = "MenuItemOpen";
+            this.MenuItemOpen.Size = new System.Drawing.Size(185, 24);
+            this.MenuItemOpen.Text = "Deschide un fisier";
+            this.MenuItemOpen.Click += new System.EventHandler(this.MenuItemOpen_Click_1);
+            // 
+            // MenuItemNewForm
+            // 
+            this.MenuItemNewForm.Name = "MenuItemNewForm";
+            this.MenuItemNewForm.Size = new System.Drawing.Size(185, 24);
+            this.MenuItemNewForm.Text = "Afisare Continut";
+            this.MenuItemNewForm.Click += new System.EventHandler(this.newFormToolStripMenuItem_Click_1);
             // 
             // Spital
             // 
@@ -674,6 +713,8 @@ namespace Interfata_Utilizator_WindowsForms
             this.Controls.Add(this.grpCitire);
             this.Controls.Add(this.lblGen);
             this.Controls.Add(this.lblCetatean);
+            this.Controls.Add(this.Menu);
+            this.MainMenuStrip = this.Menu;
             this.Name = "Spital";
             this.Text = "Spital";
             this.grpCitire.ResumeLayout(false);
@@ -687,6 +728,8 @@ namespace Interfata_Utilizator_WindowsForms
             this.grpCard.ResumeLayout(false);
             this.grpCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAfisare)).EndInit();
+            this.Menu.ResumeLayout(false);
+            this.Menu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -746,6 +789,10 @@ namespace Interfata_Utilizator_WindowsForms
         private System.Windows.Forms.Button BtnClear;
         private System.Windows.Forms.OpenFileDialog SpitalFileDialog;
         private System.Windows.Forms.Button BtnIesire;
+        private new System.Windows.Forms.MenuStrip Menu;
+        private System.Windows.Forms.ToolStripMenuItem FileTool;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemOpen;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemNewForm;
     }
 }
 

@@ -10,11 +10,13 @@ using NivelAccesDate;
 using PatientClass;
 using System.Windows.Forms;
 using System.Collections;
+using System.IO;
 
 namespace Interfata_Utilizator_WindowsForms
 {
     public partial class Spital : Form
     {
+        public string TextArea { get; set; }
         readonly IStocareData Manager;
         readonly List<string> BoliCurenteSelectate = new List<string>();
         readonly List<Patient> pacienti;
@@ -36,9 +38,9 @@ namespace Interfata_Utilizator_WindowsForms
             txtVarsta.Text = s.Varsta.ToString();
             txtMotivInternare.Text = s.MotivInternare;
 
-            foreach(Control c in grpGen.Controls)
+            foreach (Control c in grpGen.Controls)
             {
-                if(c.GetType() == typeof(RadioButton))
+                if (c.GetType() == typeof(RadioButton))
                 {
                     if (s.Sex.ToString() == c.Text)
                         ((RadioButton)c).Checked = true;
@@ -67,7 +69,7 @@ namespace Interfata_Utilizator_WindowsForms
             {
                 if (c.GetType() == typeof(CheckBox))
                 {
-                    foreach(string boala in s.Boli)
+                    foreach (string boala in s.Boli)
                         if (boala.ToUpper() == c.Text.ToUpper())
                             ((CheckBox)c).Checked = true;
                 }
@@ -78,7 +80,7 @@ namespace Interfata_Utilizator_WindowsForms
         private void BtnAfiseaza_Click(object sender, EventArgs e)
         {
             LstPatients.Items.Clear();
-            var antetTabel = String.Format("{0,-5}{1,-25}{2,-15}{3,-20}{4,-20}{5,-20}{6,-20}{7,-20}{8,-20}{9,-20}\n", "Id", "Nume Prenume", "Varsta", "Data Nasterii" , "Data Internare", "Genul", "Cetatenie", "Card", "Data Actualizare", "Boli Curente");
+            var antetTabel = String.Format("{0,-5}{1,-25}{2,-15}{3,-20}{4,-20}{5,-20}{6,-20}{7,-20}{8,-20}{9,-20}\n", "Id", "Nume Prenume", "Varsta", "Data Nasterii", "Data Internare", "Genul", "Cetatenie", "Card", "Data Actualizare", "Boli Curente");
             LstPatients.Items.Add(antetTabel);
 
             foreach (Patient s in pacienti)
@@ -122,32 +124,62 @@ namespace Interfata_Utilizator_WindowsForms
         private void BtnAdaugareClick(object sender, EventArgs e)
         {
             #region Testare Validari
+            ResetareCulori();
+            bool test = true;
+
             if (!NumeValid())
+            {
                 lblNume.ForeColor = Color.Red;
+                test = false;
+            }
+
 
             if (!PrenumeValid())
+            {
                 lblPrenume.ForeColor = Color.Red;
+                test = false;
+            }
+
 
             if (!VarstaValida())
+            {
                 lblVarsta.ForeColor = Color.Red;
+                test = false;
+            }
+
 
             if (!MotivInternareValid())
+            {
                 lblMotiv_Internare.ForeColor = Color.Red;
+                test = false;
+            }
 
             if (!BoliValide())
+            {
+                test = false;
                 lblBoliCurente.ForeColor = Color.Red;
+            }
 
             if (!GenValid())
+            {
                 lblGen.ForeColor = Color.Red;
+                test = false;
+            }
 
             if (!CetatenieValida())
+            {
+                test = false;
                 lblCetatean.ForeColor = Color.Red;
+            }
 
             if (!CardValid())
             {
                 lblCard.ForeColor = Color.Red;
-                return;
+                test = false;
             }
+
+            if (!test)
+                return;
             #endregion
 
             Patient patient = new Patient
@@ -164,7 +196,7 @@ namespace Interfata_Utilizator_WindowsForms
             patient.MotivInternare = txtMotivInternare.Text;
 
             Genul? GenulSelectat = GetGenulSelectat();
-            if(GenulSelectat.HasValue)
+            if (GenulSelectat.HasValue)
             {
                 patient.Sex = GenulSelectat.Value;
             }
@@ -190,6 +222,7 @@ namespace Interfata_Utilizator_WindowsForms
             lblMesaj.Text = "Pacientul a fost adaugat";
 
             ResetareControale();
+
         }
 
         #region Validari
@@ -314,7 +347,7 @@ namespace Interfata_Utilizator_WindowsForms
 
         private void BoliCurente_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox checkBoxControl = sender as CheckBox; 
+            CheckBox checkBoxControl = sender as CheckBox;
 
             string BoalaCurenta = checkBoxControl.Text;
             if (checkBoxControl.Checked == true)
@@ -348,6 +381,18 @@ namespace Interfata_Utilizator_WindowsForms
             ckbOreion.Checked = false;
             BoliCurenteSelectate.Clear();
             lblMesaj.Text = string.Empty;
+        }
+
+        private void ResetareCulori()
+        {
+            lblNume.ForeColor = Color.Black;
+            lblPrenume.ForeColor = Color.Black;
+            lblVarsta.ForeColor = Color.Black;
+            lblMotiv_Internare.ForeColor = Color.Black;
+            lblBoliCurente.ForeColor = Color.Black;
+            lblGen.ForeColor = Color.Black;
+            lblCetatean.ForeColor = Color.Black;
+            lblCard.ForeColor = Color.Black;
         }
 
         private void BtnCautare_Click(object sender, EventArgs e)
@@ -419,5 +464,37 @@ namespace Interfata_Utilizator_WindowsForms
         {
             Environment.Exit(0);
         }
+        
+        private void MenuItemOpen_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog OpenFileDialog = new OpenFileDialog();
+
+            OpenFileDialog.Title = "Open Text Document";
+            OpenFileDialog.Filter = "All files (*.*)|*.*|Text Document (*.txt)|*.txt";
+            OpenFileDialog.FilterIndex = 2;
+            if (OpenFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = OpenFileDialog.FileName;
+                StreamReader read = new StreamReader(File.OpenRead(filePath));
+
+                TextArea = read.ReadToEnd();
+
+                read.Close();
+            }
+        }
+
+        private void newFormToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            //using (FAfisarePac Frm = new FAfisarePac(TextArea))
+            //{
+            //    var dr = Frm.ShowDialog(this);
+            //    Frm.Close();
+            //}
+
+            ShowContents fr2 = new ShowContents(TextArea);
+            fr2.Show();
+            this.Hide();
+        }
     }
+
 }
