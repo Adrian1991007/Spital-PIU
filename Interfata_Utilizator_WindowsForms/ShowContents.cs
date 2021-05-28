@@ -12,7 +12,7 @@ namespace Interfata_Utilizator_WindowsForms
 {
     public partial class ShowContents : Form
     {
-        public string infoform { get; set; }
+        public string Infoform { get; set; }
         public ShowContents()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace Interfata_Utilizator_WindowsForms
         public ShowContents(string info)
         {
             InitializeComponent();
-            infoform = info;
+            Infoform = info;
         }
         
 
@@ -36,7 +36,7 @@ namespace Interfata_Utilizator_WindowsForms
         private void BtnLoad_Click(object sender, EventArgs e)
         {
             txtAfisare.Text = string.Empty;
-            txtAfisare.Text = infoform;
+            txtAfisare.Text = Infoform;
         }
 
         private void BtnReset_Click(object sender, EventArgs e)

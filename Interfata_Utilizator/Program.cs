@@ -6,13 +6,15 @@ using System.Collections.Generic;
 
 namespace Interfata_Utilizator
 {
+    
     class Program
     {
+        public static int IdCurent { get; set; } = 1;
         static void Main()
         {
+            
             IStocareData Manager = StocareFactory.GetAdministratorStocare();
             ArrayList patients = Manager.GetPatients();
-            Patient.IDCurent = patients.Count;
             //List<Patient> PatientsList;
 
             while (true)
@@ -65,10 +67,13 @@ namespace Interfata_Utilizator
                 Console.WriteLine(element.ConvertToString());
         }
 
+
         public static Patient KeyboardReading()
         {
-            Patient patient = new Patient();
-            patient.ID++;
+            Patient patient = new Patient
+            {
+                Id = IdCurent++
+            };
 
             Console.WriteLine("Informatii despre pacient:");
 

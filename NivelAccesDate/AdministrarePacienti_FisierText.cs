@@ -124,7 +124,7 @@ namespace NivelAccesDate
         {
            foreach(Patient pat in lst)
             {
-                if (pat.ID == idPatient)
+                if (pat.Id == idPatient)
                     return pat;
             }
             return null;
@@ -173,7 +173,7 @@ namespace NivelAccesDate
                     {
                         Patient PacientPentruScrisInFisier = pacient;
                         //informatiile despre studentul actualizat vor fi preluate din parametrul "studentActualizat"
-                        if (pacient.ID == PacientActualizat.ID)
+                        if (pacient.Id == PacientActualizat.Id)
                         {
                             PacientPentruScrisInFisier = PacientActualizat;
                         }

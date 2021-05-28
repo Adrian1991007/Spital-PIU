@@ -16,22 +16,27 @@ namespace Interfata_Utilizator_WindowsForms
 {
     public partial class Spital : Form
     {
+        public static int IdCurent { get; set; } = 1;
         public string TextArea { get; set; }
         readonly IStocareData Manager;
         readonly List<string> BoliCurenteSelectate = new List<string>();
-        readonly List<Patient> pacienti;
+        List<Patient> pacienti;
 
         public Spital()
         {
             InitializeComponent();
             Manager = StocareFactory.GetAdministratorStocare();
             pacienti = Manager.GetPatient();
+            IdCurent = pacienti.Count + 1;
         }
 
         private void ListPacienti_SelectedIndexChanged(object sender, EventArgs e)
         {
             ResetareControale();
             Patient s = Manager.GetPatient(LstPatients.SelectedIndex, pacienti);
+
+            if (s is null)
+                return;
 
             txtNume.Text = s.Nume;
             txtPrenume.Text = s.Prenume;
@@ -79,6 +84,7 @@ namespace Interfata_Utilizator_WindowsForms
 
         private void BtnAfiseaza_Click(object sender, EventArgs e)
         {
+            pacienti = Manager.GetPatient();
             LstPatients.Items.Clear();
             var antetTabel = String.Format("{0,-5}{1,-25}{2,-15}{3,-20}{4,-20}{5,-20}{6,-20}{7,-20}{8,-20}{9,-20}\n", "Id", "Nume Prenume", "Varsta", "Data Nasterii", "Data Internare", "Genul", "Cetatenie", "Card", "Data Actualizare", "Boli Curente");
             LstPatients.Items.Add(antetTabel);
@@ -92,7 +98,7 @@ namespace Interfata_Utilizator_WindowsForms
                 {
                     input += boala + " ";
                 }
-                var linieTabel = String.Format("{0,-5}{1,-5}{2,-22}{3,-17}{4,-17}{5,-18}{6,-20}{7,-20}{8,-20}{9,-20}{10,-2}\n", s.ID, s.Nume, s.Prenume, s.Varsta, s.DataNastere.ToString("dd.MM.yyyy"), s.DataInternare.ToString("dd.MM.yyyy"), s.Sex.ToString(), s.Cetatean.ToString(), s.Card.ToString(), s.DataActualizare.ToString("dd.MM.yyyy"), input.ToString());
+                var linieTabel = String.Format("{0,-5}{1,-5}{2,-22}{3,-17}{4,-17}{5,-18}{6,-20}{7,-20}{8,-20}{9,-20}{10,-2}\n", s.Id, s.Nume, s.Prenume, s.Varsta, s.DataNastere.ToString("dd.MM.yyyy"), s.DataInternare.ToString("dd.MM.yyyy"), s.Sex.ToString(), s.Cetatean.ToString(), s.Card.ToString(), s.DataActualizare.ToString("dd.MM.yyyy"), input.ToString());
                 LstPatients.Items.Add(linieTabel);
             }
             dtgAfisare.DataSource = null;
@@ -101,6 +107,7 @@ namespace Interfata_Utilizator_WindowsForms
 
         public void AfisarePacienti()
         {
+            pacienti = Manager.GetPatient();
             LstPatients.Items.Clear();
             var antetTabel = String.Format("{0,-5}{1,-25}{2,-15}{3,-20}{4,-20}{5,-20}{6,-20}{7,-20}{8,-20}{9,-20}\n", "Id", "Nume Prenume", "Varsta", "Data Nasterii", "Data Internare", "Genul", "Cetatenie", "Card", "Data Actualizare", "Boli Curente");
             LstPatients.Items.Add(antetTabel);
@@ -114,7 +121,7 @@ namespace Interfata_Utilizator_WindowsForms
                 {
                     input += boala + " ";
                 }
-                var linieTabel = String.Format("{0,-5}{1,-5}{2,-22}{3,-17}{4,-17}{5,-18}{6,-20}{7,-20}{8,-20}{9,-20}{10,-2}\n", s.ID, s.Nume, s.Prenume, s.Varsta, s.DataNastere.ToString("dd.MM.yyyy"), s.DataInternare.ToString("dd.MM.yyyy"), s.Sex.ToString(), s.Cetatean.ToString(), s.Card.ToString(), s.DataActualizare.ToString("dd.MM.yyyy"), input.ToString());
+                var linieTabel = String.Format("{0,-5}{1,-5}{2,-22}{3,-17}{4,-17}{5,-18}{6,-20}{7,-20}{8,-20}{9,-20}{10,-2}\n", s.Id, s.Nume, s.Prenume, s.Varsta, s.DataNastere.ToString("dd.MM.yyyy"), s.DataInternare.ToString("dd.MM.yyyy"), s.Sex.ToString(), s.Cetatean.ToString(), s.Card.ToString(), s.DataActualizare.ToString("dd.MM.yyyy"), input.ToString());
                 LstPatients.Items.Add(linieTabel);
             }
             dtgAfisare.DataSource = null;
@@ -194,6 +201,7 @@ namespace Interfata_Utilizator_WindowsForms
             patient.DataNastere = dtpData_Nastere.Value;
             patient.DataInternare = dtpData_Internare.Value;
             patient.MotivInternare = txtMotivInternare.Text;
+            patient.Id = IdCurent++;
 
             Genul? GenulSelectat = GetGenulSelectat();
             if (GenulSelectat.HasValue)
@@ -467,30 +475,25 @@ namespace Interfata_Utilizator_WindowsForms
         
         private void MenuItemOpen_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog OpenFileDialog = new OpenFileDialog();
-
-            OpenFileDialog.Title = "Open Text Document";
-            OpenFileDialog.Filter = "All files (*.*)|*.*|Text Document (*.txt)|*.txt";
-            OpenFileDialog.FilterIndex = 2;
-            if (OpenFileDialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog OpenFileDialog = new OpenFileDialog())
             {
-                string filePath = OpenFileDialog.FileName;
-                StreamReader read = new StreamReader(File.OpenRead(filePath));
+                OpenFileDialog.Title = "Open Text Document";
+                OpenFileDialog.Filter = "All files (*.*)|*.*|Text Document (*.txt)|*.txt";
+                OpenFileDialog.FilterIndex = 2;
+                if (OpenFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = OpenFileDialog.FileName;
+                    StreamReader read = new StreamReader(File.OpenRead(filePath));
 
-                TextArea = read.ReadToEnd();
+                    TextArea = read.ReadToEnd();
 
-                read.Close();
+                    read.Close();
+                }
             }
         }
 
-        private void newFormToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void NewFormToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            //using (FAfisarePac Frm = new FAfisarePac(TextArea))
-            //{
-            //    var dr = Frm.ShowDialog(this);
-            //    Frm.Close();
-            //}
-
             ShowContents fr2 = new ShowContents(TextArea);
             fr2.Show();
             this.Hide();

@@ -29,15 +29,16 @@ namespace PatientClass
 
     public enum ContinutPacient
     {
-        NUME = 0,
-        PRENUME = 1,
-        SEX = 2,
-        VARSTA = 3,
-        CETATEAN = 4,
-        DATANASTERE = 5,
-        MOTIVINTERNARE = 6,
-        CARD = 7,
-        DATAINTERNARE = 8,
-        BOLI = 9
+        ID = 0,
+        NUME = 1,
+        PRENUME = 2,
+        SEX = 3,
+        VARSTA = 4,
+        CETATEAN = 5,
+        DATANASTERE = 6,
+        MOTIVINTERNARE = 7,
+        CARD = 8,
+        DATAINTERNARE = 9,
+        BOLI = 10
     }
 }

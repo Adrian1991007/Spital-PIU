@@ -687,7 +687,7 @@ namespace Interfata_Utilizator_WindowsForms
             this.MenuItemNewForm.Name = "MenuItemNewForm";
             this.MenuItemNewForm.Size = new System.Drawing.Size(185, 24);
             this.MenuItemNewForm.Text = "Afisare Continut";
-            this.MenuItemNewForm.Click += new System.EventHandler(this.newFormToolStripMenuItem_Click_1);
+            this.MenuItemNewForm.Click += new System.EventHandler(this.NewFormToolStripMenuItem_Click_1);
             // 
             // Spital
             // 

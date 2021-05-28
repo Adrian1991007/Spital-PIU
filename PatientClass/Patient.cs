@@ -7,9 +7,7 @@ namespace PatientClass
     public class Patient
     {
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
-
-        public int ID { get; set; }
-        public static int IDCurent { get; set; } = 1;
+        public int Id { get; set; }
         public string Nume { get; set; }
         public string Prenume { get; set; }
         public Genul Sex { get; set; }
@@ -22,22 +20,18 @@ namespace PatientClass
         public DateTime DataActualizare { get; set; }
         public List<string> Boli { get; set; }
 
-        public Patient() 
-        {
-            ID = IDCurent++;
-        }
+        public Patient() {}
 
         public Patient(string info)
         {
             string[] InfoAfterSplit = info.Split(SEPARATOR_PRINCIPAL_FISIER);
-            ID = IDCurent++;
+            Id = Convert.ToInt32(InfoAfterSplit[(int)(ContinutPacient.ID)]);
             Nume = InfoAfterSplit[(int)ContinutPacient.NUME];
             Prenume = InfoAfterSplit[(int)ContinutPacient.PRENUME];
             Sex = (Genul)Convert.ToInt32(InfoAfterSplit[(int)ContinutPacient.SEX]);
             Varsta = Convert.ToInt32(InfoAfterSplit[(int)(ContinutPacient.VARSTA)]);
             Cetatean = (TipCetatenie)Convert.ToInt32(InfoAfterSplit[(int)ContinutPacient.CETATEAN]);
             DataNastere = DateTime.Parse(InfoAfterSplit[(int)ContinutPacient.DATANASTERE]);
-
             MotivInternare = InfoAfterSplit[(int)ContinutPacient.MOTIVINTERNARE];
             Card = (DetineCard)Convert.ToInt32(InfoAfterSplit[(int)ContinutPacient.CARD]);
             DataInternare = DateTime.Parse(InfoAfterSplit[(int)ContinutPacient.DATAINTERNARE]);
@@ -55,7 +49,7 @@ namespace PatientClass
             for (int i = 0; i < Boli.Count; i++)
                 simpt += Boli[i] + ", ";
 
-            return "ID: " + (ID.ToString() ?? "NECUNOSCUT") + "\n" +
+            return "ID: " + (Id.ToString() ?? "NECUNOSCUT") + "\n" +
                    "Nume: " + (Nume ?? "NECUNOSCUT") + "\n" +
                    "Prenume: " + (Prenume ?? "NECUNOSCUT") + "\n" +
                    "Genul: " + (Sex.ToString() ?? "NECUNOSCUT") + "\n" +
@@ -71,8 +65,8 @@ namespace PatientClass
 
         public string ConvertToStringForFile()
         {
-            string info = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}{9}{0}",
-                SEPARATOR_PRINCIPAL_FISIER, Nume, Prenume, Convert.ToInt32(Sex), Varsta, Convert.ToInt32(Cetatean), DataNastere.ToString("dd.MM.yyyy"),
+            string info = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}{9}{0}{10}{0}",
+                SEPARATOR_PRINCIPAL_FISIER, Id, Nume, Prenume, Convert.ToInt32(Sex), Varsta, Convert.ToInt32(Cetatean), DataNastere.ToString("dd.MM.yyyy"),
                 MotivInternare, Convert.ToInt32(Card), DataInternare.ToString("dd.MM.yyyy"));
 
             if (Boli.Count > 0)
