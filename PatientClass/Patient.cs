@@ -31,10 +31,26 @@ namespace PatientClass
             Sex = (Genul)Convert.ToInt32(InfoAfterSplit[(int)ContinutPacient.SEX]);
             Varsta = Convert.ToInt32(InfoAfterSplit[(int)(ContinutPacient.VARSTA)]);
             Cetatean = (TipCetatenie)Convert.ToInt32(InfoAfterSplit[(int)ContinutPacient.CETATEAN]);
-            DataNastere = DateTime.Parse(InfoAfterSplit[(int)ContinutPacient.DATANASTERE]);
+
+            string date = InfoAfterSplit[(int)ContinutPacient.DATANASTERE];
+
+            if (!DateTime.TryParse(date, out DateTime dt))
+            {
+                dt = DateTime.ParseExact(date, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            }
+
+            DataNastere = dt;
             MotivInternare = InfoAfterSplit[(int)ContinutPacient.MOTIVINTERNARE];
             Card = (DetineCard)Convert.ToInt32(InfoAfterSplit[(int)ContinutPacient.CARD]);
-            DataInternare = DateTime.Parse(InfoAfterSplit[(int)ContinutPacient.DATAINTERNARE]);
+
+            string date2 = InfoAfterSplit[(int)ContinutPacient.DATAINTERNARE];
+
+            if (!DateTime.TryParse(date2, out DateTime dt2))
+            {
+                dt2 = DateTime.ParseExact(date, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            }
+
+            DataInternare = dt2;
             DataActualizare = DateTime.Now;
 
             List<string> simpt = new List<string>();
@@ -78,7 +94,9 @@ namespace PatientClass
                     else
                         info += Boli[i] + SEPARATOR_PRINCIPAL_FISIER;
                 }
+                info += "\n";
             }
+            info += "\n";
             return info;
         }
     }

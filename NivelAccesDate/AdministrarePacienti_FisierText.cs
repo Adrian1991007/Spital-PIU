@@ -24,7 +24,7 @@ namespace NivelAccesDate
             {
                 using (StreamWriter swFisierText = new StreamWriter(NumeFisier, true))
                 {
-                    swFisierText.WriteLine(patient.ConvertToStringForFile());
+                    swFisierText.Write(patient.ConvertToStringForFile());
                 }
             }
             catch (IOException eIO)
@@ -103,8 +103,11 @@ namespace NivelAccesDate
 
                     while ((line = sr.ReadLine()) != null)
                     {
-                        Patient patient = new Patient(line);
-                        ListOfPatients.Add(patient);
+                        if(line.Length != 0)
+                        {
+                            Patient patient = new Patient(line);
+                            ListOfPatients.Add(patient);
+                        }
                     }
                 }
             }
@@ -177,7 +180,7 @@ namespace NivelAccesDate
                         {
                             PacientPentruScrisInFisier = PacientActualizat;
                         }
-                        swFisierText.WriteLine(PacientPentruScrisInFisier.ConvertToStringForFile());
+                        swFisierText.Write(PacientPentruScrisInFisier.ConvertToStringForFile());
                     }
                     actualizareCuSucces = true;
                 }

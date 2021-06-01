@@ -84,6 +84,7 @@ namespace Interfata_Utilizator_WindowsForms
 
         private void BtnAfiseaza_Click(object sender, EventArgs e)
         {
+            pacienti = null;
             pacienti = Manager.GetPatient();
             LstPatients.Items.Clear();
             var antetTabel = String.Format("{0,-5}{1,-25}{2,-15}{3,-20}{4,-20}{5,-20}{6,-20}{7,-20}{8,-20}{9,-20}\n", "Id", "Nume Prenume", "Varsta", "Data Nasterii", "Data Internare", "Genul", "Cetatenie", "Card", "Data Actualizare", "Boli Curente");
@@ -406,14 +407,13 @@ namespace Interfata_Utilizator_WindowsForms
         private void BtnCautare_Click(object sender, EventArgs e)
         {
             LstPatients.Items.Clear();
-            Patient patient = Manager.GetPatient(txtNume.Text);
+            _ = Manager.GetPatient(txtNume.Text);
 
-            LstPatients.Items.Add("Pacientul cautat este:");
 
-            if (patient != null)
-                LstPatients.Items.Add(patient.ConvertToString());
-            else
-                LstPatients.Items.Add("Pacientul nu este inregistrat");
+            //if (patient != null)
+            //    LstPatients.Items.Add(patient.ConvertToString());
+            //else
+            //    LstPatients.Items.Add("Pacientul nu este inregistrat");
         }
 
         private void BtnReseteaza_Click(object sender, EventArgs e)
