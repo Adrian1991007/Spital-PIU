@@ -145,9 +145,12 @@ namespace NivelAccesDate
                     //citeste cate o linie si creaza un obiect de tip Student pe baza datelor din linia citita
                     while ((linieDinFisier = sr.ReadLine()) != null)
                     {
-                        Patient patient = new Patient(linieDinFisier);
-                        if (patient.Nume.Equals(nume))
-                            return patient;
+                        if(linieDinFisier.Length != 0 )
+                        {
+                            Patient patient = new Patient(linieDinFisier);
+                            if (patient.Nume.ToUpper().Equals(nume.ToUpper()))
+                                return patient;
+                        }
                     }
                 }
             }

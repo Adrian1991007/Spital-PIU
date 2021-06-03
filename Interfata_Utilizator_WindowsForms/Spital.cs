@@ -406,14 +406,19 @@ namespace Interfata_Utilizator_WindowsForms
 
         private void BtnCautare_Click(object sender, EventArgs e)
         {
+            if (txtNume.Text.Length  < 4)
+            {
+                lblNume.ForeColor = Color.Red;
+                return;
+            }
+            lblNume.ForeColor = Color.Black;
             LstPatients.Items.Clear();
-            _ = Manager.GetPatient(txtNume.Text);
+            Patient patient = Manager.GetPatient(txtNume.Text);
 
-
-            //if (patient != null)
-            //    LstPatients.Items.Add(patient.ConvertToString());
-            //else
-            //    LstPatients.Items.Add("Pacientul nu este inregistrat");
+            if (patient != null)
+                LstPatients.Items.Add(patient.ConvertToString());
+            else
+                LstPatients.Items.Add("Pacientul nu este inregistrat");
         }
 
         private void BtnReseteaza_Click(object sender, EventArgs e)
@@ -424,6 +429,11 @@ namespace Interfata_Utilizator_WindowsForms
         private void BtnModifica_Click(object sender, EventArgs e)
         {
             Patient patient = Manager.GetPatient(LstPatients.SelectedIndex, pacienti);
+
+            if(txtNume.Text.Length < 3)
+            {
+                return;
+            }
 
             patient.Nume = txtNume.Text;
             patient.Prenume = txtPrenume.Text;
@@ -466,6 +476,7 @@ namespace Interfata_Utilizator_WindowsForms
         private void BtnClear_Click(object sender, EventArgs e)
         {
             LstPatients.Items.Clear();
+            dtgAfisare.DataSource = null;
         }
 
         private void BtnIesire_Click(object sender, EventArgs e)
